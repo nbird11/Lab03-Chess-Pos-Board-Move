@@ -53,9 +53,9 @@ public:
    bool isValid()   const         { return !isInvalid();          }
    void setValid()                {                               }
    void setInvalid()              {                               }
-   bool operator <  (const Position & rhs) const { return true; }
-   bool operator == (const Position & rhs) const { return true; }
-   bool operator != (const Position & rhs) const { return true; }
+   bool operator <  (const Position & rhs) const { return this->colRow < rhs.colRow; }
+   bool operator == (const Position & rhs) const { return this->colRow == rhs.colRow; }
+   bool operator != (const Position & rhs) const { return this->colRow != rhs.colRow; }
    const Position & operator = (const Position & rhs) { colRow = rhs.colRow; return *this; }
    
    // Location : The Position class can work with locations, which
