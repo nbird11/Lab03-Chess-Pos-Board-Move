@@ -18,6 +18,8 @@ using std::istream;
 const int SIZE_SQUARE  = 32;   // number of pixels in a square by default
 const int OFFSET_BOARD = 50;   // boarder between the board and the edge of screen
 
+//deleteme
+
 /***********************************************
  * DELTA
  * Movement in a direction (dRow and dCol)
