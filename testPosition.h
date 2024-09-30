@@ -48,11 +48,11 @@ public:
       getCol_colInvalid();
       isValid_colInvalid();
       isInvalid_colInvalid();
-      //set_col();
-      //set_row();
-      //set_both();
-      //set_copy();
-      //equal_not();
+      set_col();
+      set_row();
+      set_both();
+      set_copy();
+      equal_not();
       //equal_equals();
       //lessthan_lessthan();
       //lessthan_equals();

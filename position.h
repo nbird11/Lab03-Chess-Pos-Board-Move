@@ -56,7 +56,7 @@ public:
    bool operator <  (const Position & rhs) const { return true; }
    bool operator == (const Position & rhs) const { return true; }
    bool operator != (const Position & rhs) const { return true; }
-   const Position & operator =  (const Position & rhs) { return *this; }
+   const Position & operator = (const Position & rhs) { colRow = rhs.colRow; return *this; }
    
    // Location : The Position class can work with locations, which
    //            are 0...63 where we start in row 0, then row 1, etc.
@@ -70,9 +70,9 @@ public:
    Position(int c, int r) : colRow(0x99)  {                                                      }
    virtual int getCol() const             { return isValid() ? (int)((colRow & 0xf0) >> 4) : -1; }
    virtual int getRow() const             { return isValid() ? (int)((colRow & 0x0f) >> 0) : -1; }
-   void setRow(int r)                     {                                                      }
-   void setCol(int c)                     {                                                      }
-   void set(int c, int r)                 {                                                      }
+   void setRow(int r)                     { colRow = (colRow & 0xf0) | (r << 0); }
+   void setCol(int c)                     { colRow = (colRow & 0x0f) | (c << 4); }
+   void set(int c, int r)                 { setCol(c); setRow(r); }
 
    // Text:    The Position class can work with textual coordinates,
    //          such as "d4"

@@ -11,6 +11,7 @@
 #include "testPosition.h" // for POSITION_TEST
 #include "position.h"     // for POSITION
 #include <cassert>        // for ASSERT
+#include <bitset>  // DELETEME
 
 
 /***********************************************
