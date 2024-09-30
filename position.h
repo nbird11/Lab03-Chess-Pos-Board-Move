@@ -47,12 +47,12 @@ public:
 
    // Position :    The Position class can work with other positions,
    //               Allowing for comparisions, copying, etc.
-   Position(const Position & rhs) {               }
-   Position() : colRow(0x99)      {               }
-   bool isInvalid() const         { return false; }
-   bool isValid()   const         { return true;  }
-   void setValid()                {               }
-   void setInvalid()              {               }
+   Position(const Position & rhs) {                               }
+   Position() : colRow(0x99)      {                               }
+   bool isInvalid() const         { return (bool)(colRow & 0x88); }
+   bool isValid()   const         { return !isInvalid();          }
+   void setValid()                {                               }
+   void setInvalid()              {                               }
    bool operator <  (const Position & rhs) const { return true; }
    bool operator == (const Position & rhs) const { return true; }
    bool operator != (const Position & rhs) const { return true; }
@@ -67,12 +67,12 @@ public:
    
    // Row/Col : The position class can work with row/column,
    //           which are 0..7 and 0...7
-   Position(int c, int r) : colRow(0x99)  {                                     }
-   virtual int getCol() const             { return (int)((colRow & 0xf0) >> 4); }
-   virtual int getRow() const             { return (int)((colRow & 0x0f) >> 0); }
-   void setRow(int r)                     {                                     }
-   void setCol(int c)                     {                                     }
-   void set(int c, int r)                 {                                     }
+   Position(int c, int r) : colRow(0x99)  {                                                      }
+   virtual int getCol() const             { return isValid() ? (int)((colRow & 0xf0) >> 4) : -1; }
+   virtual int getRow() const             { return isValid() ? (int)((colRow & 0x0f) >> 0) : -1; }
+   void setRow(int r)                     {                                                      }
+   void setCol(int c)                     {                                                      }
+   void set(int c, int r)                 {                                                      }
 
    // Text:    The Position class can work with textual coordinates,
    //          such as "d4"
