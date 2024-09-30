@@ -59,10 +59,10 @@ public:
       lessthan_greaterthan();
 
       // Ticket 2: Position Text
-      //set_text();
-      //set_string();
-      // 
-      //// Ticket 3: Position Movement
+      set_text();
+      set_string();
+       
+      // Ticket 3: Position Movement
       //adjust_addColumn();
       //adjust_addRow();
       //adjust_offRight();

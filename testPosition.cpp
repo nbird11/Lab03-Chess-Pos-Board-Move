@@ -639,6 +639,7 @@ void PositionTest::set_text()
    pos = "c6";
 
    // VERIFY
+   std::cout << "pos.colRow = " << std::bitset<8>(pos.colRow) << std::endl;
    assertUnit(pos.colRow == 0x25);
 
    // TEARDOWN
