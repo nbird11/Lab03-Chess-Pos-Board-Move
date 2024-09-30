@@ -22,13 +22,13 @@ public:
    {
       // Ticket 1: Position Core
       getRow_zero();
-      //getCol_zero();
-      //getLocation_zero();
-      //isValid_zero();
-      //isInvalid_zero();
-      //getRow_middle();
-      //getCol_middle();
-      //getLocation_middle();
+      getCol_zero();
+      getLocation_zero();
+      isValid_zero();
+      isInvalid_zero();
+      getRow_middle();
+      getCol_middle();
+      getLocation_middle();
       //isValid_middle();
       //isInvalid_middle();
       //getRow_end();

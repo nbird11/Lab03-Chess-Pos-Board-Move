@@ -9,6 +9,7 @@
 
 #pragma once
 
+#include <iostream>  // DELETE ME
 #include <string>
 #include <cstdint>
 using std::string;
@@ -49,7 +50,7 @@ public:
    //               Allowing for comparisions, copying, etc.
    Position(const Position & rhs) {              }
    Position() : colRow(0x99)      {              }
-   bool isInvalid() const         { return true; }
+   bool isInvalid() const         { return false; }
    bool isValid()   const         { return true; }
    void setValid()                {              }
    void setInvalid()              {              }
@@ -61,15 +62,17 @@ public:
    // Location : The Position class can work with locations, which
    //            are 0...63 where we start in row 0, then row 1, etc.
    Position(int location) : colRow(0x99) { }
-   int getLocation() const               { return 9; }
+   int getLocation() const {
+      std::cout << "colRow = " << (int)colRow << std::endl;  return colRow;
+   }
    void setLocation(int location)        {           }
 
    
    // Row/Col : The position class can work with row/column,
    //           which are 0..7 and 0...7
    Position(int c, int r) : colRow(0x99)  {           }
-   virtual int getCol() const                     { return 9; }
-   virtual int getRow() const                     { return 9; }
+   virtual int getCol() const                     { return colRow / 16; }
+   virtual int getRow() const                     { return colRow % 16; }
    void setRow(int r)                     {           }
    void setCol(int c)                     {           }
    void set(int c, int r)                 {           }

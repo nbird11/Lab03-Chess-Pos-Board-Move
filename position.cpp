@@ -10,10 +10,7 @@
 #include "position.h"
 #include <iostream>
 
-class Position
-{
 
-};
 
 /******************************************
  * POSITION INSERTION OPERATOR
