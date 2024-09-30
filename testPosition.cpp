@@ -163,7 +163,8 @@ void PositionTest::getLocation_middle()
    location = pos.getLocation();
 
    // VERIFY
-   assertUnit(location == 33);
+   std::cout << "location = " << location << std::endl;
+   assertUnit(location == 33);  // TODO This location is incorrect?
    assertUnit(pos.colRow == 0x14);
 
 }  // TEARDOWN

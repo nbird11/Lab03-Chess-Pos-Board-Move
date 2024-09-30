@@ -9,7 +9,6 @@
 
 #pragma once
 
-#include <iostream>  // DELETE ME
 #include <string>
 #include <cstdint>
 using std::string;
@@ -48,12 +47,12 @@ public:
 
    // Position :    The Position class can work with other positions,
    //               Allowing for comparisions, copying, etc.
-   Position(const Position & rhs) {              }
-   Position() : colRow(0x99)      {              }
+   Position(const Position & rhs) {               }
+   Position() : colRow(0x99)      {               }
    bool isInvalid() const         { return false; }
-   bool isValid()   const         { return true; }
-   void setValid()                {              }
-   void setInvalid()              {              }
+   bool isValid()   const         { return true;  }
+   void setValid()                {               }
+   void setInvalid()              {               }
    bool operator <  (const Position & rhs) const { return true; }
    bool operator == (const Position & rhs) const { return true; }
    bool operator != (const Position & rhs) const { return true; }
@@ -61,21 +60,19 @@ public:
    
    // Location : The Position class can work with locations, which
    //            are 0...63 where we start in row 0, then row 1, etc.
-   Position(int location) : colRow(0x99) { }
-   int getLocation() const {
-      std::cout << "colRow = " << (int)colRow << std::endl;  return colRow;
-   }
-   void setLocation(int location)        {           }
+   Position(int location) : colRow(0x99) {                                  }
+   int getLocation() const               { return getCol() * 16 + getRow(); }
+   void setLocation(int location)        {                                  }
 
    
    // Row/Col : The position class can work with row/column,
    //           which are 0..7 and 0...7
-   Position(int c, int r) : colRow(0x99)  {           }
-   virtual int getCol() const                     { return colRow / 16; }
-   virtual int getRow() const                     { return colRow % 16; }
-   void setRow(int r)                     {           }
-   void setCol(int c)                     {           }
-   void set(int c, int r)                 {           }
+   Position(int c, int r) : colRow(0x99)  {                                     }
+   virtual int getCol() const             { return (int)((colRow & 0xf0) >> 4); }
+   virtual int getRow() const             { return (int)((colRow & 0x0f) >> 0); }
+   void setRow(int r)                     {                                     }
+   void setCol(int c)                     {                                     }
+   void set(int c, int r)                 {                                     }
 
    // Text:    The Position class can work with textual coordinates,
    //          such as "d4"
