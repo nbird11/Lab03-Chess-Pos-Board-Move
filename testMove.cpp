@@ -401,7 +401,7 @@ void TestMove::pieceTypeFromLetter_knight()
    PieceType pieceType = move.pieceTypeFromLetter('n');
 
    // VERIFY
-   assertUnit(pieceType == PieceType::PAWN);
+   assertUnit(pieceType == PieceType::KNIGHT);
 
 } // TEARDOWN
 
@@ -412,7 +412,14 @@ void TestMove::pieceTypeFromLetter_knight()
   **************************************/
 void TestMove::pieceTypeFromLetter_rook()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Move move;
+
+   // EXERCISE
+   PieceType pieceType = move.pieceTypeFromLetter('r');
+
+   // VERIFY
+   assertUnit(pieceType == PieceType::ROOK);
 }
 
  /*************************************
@@ -422,7 +429,14 @@ void TestMove::pieceTypeFromLetter_rook()
   **************************************/
 void TestMove::pieceTypeFromLetter_queen()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Move move;
+
+   // EXERCISE
+   PieceType pieceType = move.pieceTypeFromLetter('q');
+
+   // VERIFY
+   assertUnit(pieceType == PieceType::QUEEN);
 }
 
  /*************************************
@@ -432,7 +446,14 @@ void TestMove::pieceTypeFromLetter_queen()
   **************************************/
 void TestMove::pieceTypeFromLetter_king() 
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
+   // SETUP
+   Move move;
+
+   // EXERCISE
+   PieceType pieceType = move.pieceTypeFromLetter('k');
+
+   // VERIFY
+   assertUnit(pieceType == PieceType::KING);
 }
 
 
