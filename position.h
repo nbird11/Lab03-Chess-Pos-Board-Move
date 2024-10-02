@@ -80,7 +80,7 @@ public:
    //          such as "d4"
    
    Position(const char * s);
-   const Position & operator =  (const char* rhs);
+   const Position & operator = (const char* rhs);
    const Position& operator =  (const string& rhs);
 
    
