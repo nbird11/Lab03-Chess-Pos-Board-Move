@@ -72,8 +72,8 @@ public:
    Position(int c, int r) : colRow(0x99)  {                                                      }
    virtual int getCol() const             { return isValid() ? (int)((colRow & 0xf0) >> 4) : -1; }
    virtual int getRow() const             { return isValid() ? (int)((colRow & 0x0f) >> 0) : -1; }
-   void setRow(int r)                     { colRow = (colRow & 0xf0) | (r << 0); }
-   void setCol(int c)                     { colRow = (colRow & 0x0f) | (c << 4); }
+   void setRow(int r)                     { colRow = (colRow & 0xf0) | (r << 0); if (isInvalid()) colRow = 0xff; }
+   void setCol(int c)                     { colRow = (colRow & 0x0f) | (c << 4); if (isInvalid()) colRow = 0xff; }
    void set(int c, int r)                 { setCol(c); setRow(r); }
 
    // Text:    The Position class can work with textual coordinates,
@@ -101,7 +101,11 @@ public:
    Position(const Position & rhs, const Delta & delta) : colRow(-1) {  }
    void adjustRow(int dRow)   { }
    void adjustCol(int dCol)   { }
-   const Position & operator += (const Delta & rhs) { return *this; }
+   const Position& operator += (const Delta& rhs) {
+      setCol(getCol() + rhs.dCol);
+      setRow(getRow() + rhs.dRow);
+      return *this;
+   }
    Position operator + (const Delta & rhs) const { return *this; }
 
 private:
