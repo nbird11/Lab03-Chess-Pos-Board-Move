@@ -33,7 +33,7 @@ void TestMove::constructor_default()
    assertUnit(move.isWhite);
    assertUnit(move.text == string(""));
 
-} // TEARDOWN
+}  // TEARDOWN
 
  /*************************************
   * CONSTRUCTOR : standard string move
@@ -247,7 +247,7 @@ void TestMove::letterFromPieceType_space()
    // VERIFY
    assertUnit(letter == ' ');
 
-} // TEARDOWN
+}  // TEARDOWN
 
  /*************************************
   * LETTER FROM PIECE TYPE pawn
@@ -281,7 +281,7 @@ void TestMove::letterFromPieceType_bishop()
    // VERIFY
    assertUnit(letter == 'b');
 
-} // TEARDOWN
+}  // TEARDOWN
 
  /*************************************
   * LETTER FROM PIECE TYPE knight
@@ -298,7 +298,7 @@ void TestMove::letterFromPieceType_knight()
    // VERIFY
    assertUnit(letter == 'n');
 
-} // TEARDOWN
+}  // TEARDOWN
 
  /*************************************
   * LETTER FROM PIECE TYPE rook
@@ -315,7 +315,7 @@ void TestMove::letterFromPieceType_rook()
    // VERIFY
    assertUnit(letter == 'r');
 
-} // TEARDOWN
+}  // TEARDOWN
 
  /*************************************
   * LETTER FROM PIECE TYPE queen
@@ -332,7 +332,7 @@ void TestMove::letterFromPieceType_queen()
    // VERIFY
    assertUnit(letter == 'q');
 
-} // TEARDOWN
+}  // TEARDOWN
 
  /*************************************
   * LETTER FROM PIECE TYPE king
@@ -349,7 +349,7 @@ void TestMove::letterFromPieceType_king()
    // VERIFY
    assertUnit(letter == 'k');
 
-} // TEARDOWN
+}  // TEARDOWN
 
  /*************************************
   * PIECE TYPE FROM LETTER pawn
@@ -367,7 +367,7 @@ void TestMove::pieceTypeFromLetter_pawn()
    // VERIFY
    assertUnit(pieceType == PieceType::PAWN);
 
-} // TEARDOWN
+}  // TEARDOWN
 
  /*************************************
   * PIECE TYPE FROM LETTER bishop
@@ -385,7 +385,7 @@ void TestMove::pieceTypeFromLetter_bishop()
    // VERIFY
    assertUnit(pieceType == PieceType::BISHOP);
 
-} // TEARDOWN
+}  // TEARDOWN
 
  /*************************************
   * PIECE TYPE FROM LETTER knight
@@ -403,7 +403,7 @@ void TestMove::pieceTypeFromLetter_knight()
    // VERIFY
    assertUnit(pieceType == PieceType::KNIGHT);
 
-} // TEARDOWN
+}  // TEARDOWN
 
  /*************************************
   * PIECE TYPE FROM LETTER rook
@@ -420,7 +420,8 @@ void TestMove::pieceTypeFromLetter_rook()
 
    // VERIFY
    assertUnit(pieceType == PieceType::ROOK);
-}
+
+}  // TEARDOWN
 
  /*************************************
   * PIECE TYPE FROM LETTER queen
@@ -437,7 +438,8 @@ void TestMove::pieceTypeFromLetter_queen()
 
    // VERIFY
    assertUnit(pieceType == PieceType::QUEEN);
-}
+
+}  // TEARDOWN
 
  /*************************************
   * PIECE TYPE FROM LETTER king
@@ -454,7 +456,8 @@ void TestMove::pieceTypeFromLetter_king()
 
    // VERIFY
    assertUnit(pieceType == PieceType::KING);
-}
+
+}  // TEARDOWN
 
 
  /*************************************
