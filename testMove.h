@@ -36,13 +36,13 @@ public:
       pieceTypeFromLetter_king();
       pieceTypeFromLetter_queen();
       equal_not();
-      //equal_equals();
-      //lessthan_lessthan();
-      //lessthan_equals();
-      //lessthan_greaterthan();
+      equal_equals();
+      lessthan_lessthan();
+      lessthan_equals();
+      lessthan_greaterthan();
 
       // Ticket 5: Move Text
-      //read_simple();
+      read_simple();
       //read_capture();
       //read_enpassant();
       //read_castleKing();

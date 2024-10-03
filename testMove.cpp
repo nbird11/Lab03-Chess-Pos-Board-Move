@@ -56,8 +56,16 @@ void TestMove::constructString_simple()
   **************************************/
 void TestMove::read_simple()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   PositionStub 
+
+   // EXERCISE
+   Move move("e5e6");
+
+   // VERIFY
+   assertUnit(move.source == )
+
+}  // TEARDOWN
 
  /*************************************
   * READ capture move 
@@ -467,28 +475,49 @@ void TestMove::pieceTypeFromLetter_king()
   **************************************/
 void TestMove::equal_not()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   Move moveb4("b2b4");
+   Move moveb5("b2b5");
+   
+   // EXERCISE   
+   // VERIFY
+   assertUnit(moveb4 != moveb5);
+
+}  // TEARDOWN
 
  /*************************************
   * EQUAL - EQUALS
   * Input : b2b4 == b2b4
-  * Output: false
+  * Output: true
   **************************************/
 void TestMove::equal_equals()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   Move move1("b2b4");
+   Move move2("b2b4");
+
+   // EXERCISE
+   // VERIFY
+   assertUnit(move1 == move2);
+
+}  // TEARDOWN
 
  /*************************************
   * LESS THAN - LESS THAN
   * Input : b2b2 < b2b4
-  * Output: false
+  * Output: true
   **************************************/
 void TestMove::lessthan_lessthan()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   Move moveb2("b2b2");
+   Move moveb4("b2b4");
+
+   // EXERCISE
+   // VERIFY
+   assertUnit(moveb2 < moveb4);
+
+}  // TEARDOWN
 
  /*************************************
   * LESS THAN - EQUALS
@@ -497,8 +526,15 @@ void TestMove::lessthan_lessthan()
   **************************************/
 void TestMove::lessthan_equals()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   Move move1("b2b4");
+   Move move2("b2b4");
+
+   // EXERCISE
+   // VERIFY
+   assertUnit(move1 < move2 == false);
+
+}  // TEARDOWN
 
  /*************************************
   * LESS THAN - GREATAER THAN
@@ -507,5 +543,12 @@ void TestMove::lessthan_equals()
   **************************************/
 void TestMove::lessthan_greaterthan()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   Move moveb4("b2b4");
+   Move moveb2("b2b2");
+
+   // EXERCISE
+   // VERIFY
+   assertUnit(moveb4 < moveb2 == false);
+
+}  // TEARDOWN

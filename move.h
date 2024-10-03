@@ -31,12 +31,17 @@ public:
 
    // constructor
    Move();
-
+   Move(const char* text);
+   bool operator == (const Move& rhs);
+   bool operator != (const Move& rhs);
+   bool operator <  (const Move & rhs) { return this->text < rhs.text;  }
+   bool operator <= (const Move & rhs) { return this->text <= rhs.text; }
+   bool operator >  (const Move & rhs) { return this->text > rhs.text;  }
+   bool operator >= (const Move & rhs) { return this->text >= rhs.text; }
 
 private:
    char letterFromPieceType(PieceType pt)     const;
    PieceType pieceTypeFromLetter(char letter) const;
-
 
 
    Position  source;    // where the move originated from

@@ -22,6 +22,40 @@ Move::Move() : promote(PieceType::INVALID), capture(PieceType::INVALID), moveTyp
 {
 }
 
+Move::Move(const char* text)
+{
+   this->text = text;
+   string firstTwo_s = this->text.substr(0, 2);
+   const char* firstTwo = firstTwo_s.c_str();
+   this->source = Position(firstTwo);
+   string nextTwo_s = this->text.substr(2, 4);
+   const char* nextTwo = nextTwo_s.c_str();
+   this->dest = Position(nextTwo);
+   this->moveType = MOVE;
+}
+
+bool Move::operator==(const Move& rhs)
+{
+   return this->source == rhs.source
+      && this->dest == rhs.dest
+      && this->promote == rhs.promote
+      && this->capture == rhs.capture
+      && this->moveType == rhs.moveType
+      && this->isWhite == rhs.isWhite
+      && this->text == rhs.text;
+}
+
+bool Move::operator!=(const Move& rhs)
+{
+   return this->source != rhs.source
+      || this->dest != rhs.dest
+      || this->promote != rhs.promote
+      || this->capture != rhs.capture
+      || this->moveType != rhs.moveType
+      || this->isWhite != rhs.isWhite
+      || this->text != rhs.text;
+}
+
 char Move::letterFromPieceType(PieceType pt) const
 {
    switch (pt)
