@@ -10,7 +10,6 @@
 #include "position.h"
 #include <iostream>
 #include <cassert>
-#include <bitset>  // DELETEME
 
 Position::Position(const char * s)
 {

@@ -31,7 +31,7 @@ public:
 
    // constructor
    Move();
-   Move(const char* text);
+   Move(const char* text, const bool& isWhite);
    bool operator == (const Move& rhs);
    bool operator != (const Move& rhs);
    bool operator <  (const Move & rhs) { return this->text < rhs.text;  }

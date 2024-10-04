@@ -57,13 +57,13 @@ void TestMove::constructString_simple()
 void TestMove::read_simple()
 {
    // SETUP
-   PositionStub 
-
    // EXERCISE
-   Move move("e5e6");
+   Move move("e5e6", true);
 
    // VERIFY
-   assertUnit(move.source == )
+   assertUnit(move.source.colRow == 0x44);
+   assertUnit(move.dest.colRow == 0x45);
+   assertUnit(move.moveType == Move::MoveType::MOVE);
 
 }  // TEARDOWN
 
@@ -476,8 +476,8 @@ void TestMove::pieceTypeFromLetter_king()
 void TestMove::equal_not()
 {
    // SETUP
-   Move moveb4("b2b4");
-   Move moveb5("b2b5");
+   Move moveb4("b2b4", true);
+   Move moveb5("b2b5", true);
    
    // EXERCISE   
    // VERIFY
@@ -493,8 +493,8 @@ void TestMove::equal_not()
 void TestMove::equal_equals()
 {
    // SETUP
-   Move move1("b2b4");
-   Move move2("b2b4");
+   Move move1("b2b4", true);
+   Move move2("b2b4", true);
 
    // EXERCISE
    // VERIFY
@@ -510,8 +510,8 @@ void TestMove::equal_equals()
 void TestMove::lessthan_lessthan()
 {
    // SETUP
-   Move moveb2("b2b2");
-   Move moveb4("b2b4");
+   Move moveb2("b2b2", true);
+   Move moveb4("b2b4", true);
 
    // EXERCISE
    // VERIFY
@@ -527,8 +527,8 @@ void TestMove::lessthan_lessthan()
 void TestMove::lessthan_equals()
 {
    // SETUP
-   Move move1("b2b4");
-   Move move2("b2b4");
+   Move move1("b2b4", true);
+   Move move2("b2b4", true);
 
    // EXERCISE
    // VERIFY
@@ -544,8 +544,8 @@ void TestMove::lessthan_equals()
 void TestMove::lessthan_greaterthan()
 {
    // SETUP
-   Move moveb4("b2b4");
-   Move moveb2("b2b2");
+   Move moveb4("b2b4", true);
+   Move moveb2("b2b2", true);
 
    // EXERCISE
    // VERIFY

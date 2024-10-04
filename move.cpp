@@ -12,6 +12,7 @@
 #include <cassert>
 #include <iostream>
 #include <sstream>
+#include <bitset>
 
 using namespace std;
 
@@ -22,16 +23,22 @@ Move::Move() : promote(PieceType::INVALID), capture(PieceType::INVALID), moveTyp
 {
 }
 
-Move::Move(const char* text)
+Move::Move(const char* text, const bool& isWhite)
 {
    this->text = text;
    string firstTwo_s = this->text.substr(0, 2);
    const char* firstTwo = firstTwo_s.c_str();
    this->source = Position(firstTwo);
+
    string nextTwo_s = this->text.substr(2, 4);
    const char* nextTwo = nextTwo_s.c_str();
    this->dest = Position(nextTwo);
+
    this->moveType = MOVE;
+   this->isWhite = isWhite;
+
+   promote = PieceType::INVALID;
+   capture = PieceType::INVALID;
 }
 
 bool Move::operator==(const Move& rhs)
