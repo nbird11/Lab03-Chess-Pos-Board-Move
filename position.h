@@ -75,7 +75,11 @@ public:
    virtual int getRow() const             { return isValid() ? (int)((colRow & 0x0f) >> 0) : -1; }
    void setRow(int r)                     { colRow = (colRow & 0xf0) | (r << 0); if (isInvalid()) colRow = 0xff; }
    void setCol(int c)                     { colRow = (colRow & 0x0f) | (c << 4); if (isInvalid()) colRow = 0xff; }
-   void set(int c, int r)                 { colRow = (colRow & 0x0f) | (c << 4); colRow = (colRow & 0xf0) | (r << 0); if (isInvalid()) colRow = 0xff;
+   void set(int c, int r) {
+      colRow = (colRow & 0x0f) | (c << 4);
+      colRow = (colRow & 0xf0) | (r << 0);
+      if (isInvalid())
+         colRow = 0xff;
    }
 
    // Text:    The Position class can work with textual coordinates,
