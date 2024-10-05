@@ -70,7 +70,7 @@ public:
    
    // Row/Col : The position class can work with row/column,
    //           which are 0..7 and 0...7
-   Position(int c, int r) : colRow(0x99)  {                                                      }
+   Position(int c, int r)                 { set(c, r); }
    virtual int getCol() const             { return isValid() ? (int)((colRow & 0xf0) >> 4) : -1; }
    virtual int getRow() const             { return isValid() ? (int)((colRow & 0x0f) >> 0) : -1; }
    void setRow(int r)                     { colRow = (colRow & 0xf0) | (r << 0); if (isInvalid()) colRow = 0xff; }
@@ -83,7 +83,7 @@ public:
    
    Position(const char * s);
    const Position & operator = (const char* rhs);
-   const Position& operator =  (const string& rhs);
+   const Position & operator = (const string& rhs);
 
    
    // Pixels:    The Position class can work with screen coordinates,
