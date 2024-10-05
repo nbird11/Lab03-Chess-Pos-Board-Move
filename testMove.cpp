@@ -44,8 +44,17 @@ void TestMove::constructor_default()
   **************************************/
 void TestMove::constructString_simple()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   string input = "e5e6";
+
+   // EXERCISE
+   Move move(input, true); 
+
+   // VERIFY
+   assertUnit(move.source.colRow == 0x44);
+   assertUnit(move.dest.colRow == 0x45);
+   assertUnit(move.moveType == Move::MoveType::MOVE);
+}  // TEARDOWN
 
  /*************************************
   * READ simple move 
@@ -57,14 +66,13 @@ void TestMove::constructString_simple()
 void TestMove::read_simple()
 {
    // SETUP
+   Move move;
    // EXERCISE
-   Move move("e5e6", true);
-
+   move.read("e5e6");
    // VERIFY
    assertUnit(move.source.colRow == 0x44);
    assertUnit(move.dest.colRow == 0x45);
    assertUnit(move.moveType == Move::MoveType::MOVE);
-
 }  // TEARDOWN
 
  /*************************************
@@ -77,8 +85,16 @@ void TestMove::read_simple()
   **************************************/
 void TestMove::read_capture()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   Move move;
+   // EXERCISE
+   move.read("e5d6r");
+   // VERIFY
+   assertUnit(move.source.colRow == 0x44);
+   assertUnit(move.dest.colRow == 0x35);
+   assertUnit(move.moveType == Move::MoveType::MOVE);
+   assertUnit(move.capture == PieceType::ROOK);
+}  // TEARDOWN
 
  /*************************************
   * READ enpassant move 
@@ -89,8 +105,15 @@ void TestMove::read_capture()
   **************************************/
 void TestMove::read_enpassant()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   Move move;
+   // EXERCISE
+   move.read("e5f6E");
+   // VERIFY
+   assertUnit(move.source.colRow == 0x44);
+   assertUnit(move.dest.colRow == 0x55);
+   assertUnit(move.moveType == Move::MoveType::ENPASSANT);
+}  // TEARDOWN
 
  /*************************************
   * READ king side castle
@@ -101,8 +124,15 @@ void TestMove::read_enpassant()
   **************************************/
 void TestMove::read_castleKing()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   Move move;
+   // EXERCISE
+   move.read("e1g1c");
+   // VERIFY
+   assertUnit(move.source.colRow == 0x40);
+   assertUnit(move.dest.colRow == 0x60);
+   assertUnit(move.moveType == Move::MoveType::CASTLE_KING);
+}  // TEARDOWN
 
  /*************************************
   * READ queen side castle
@@ -113,8 +143,15 @@ void TestMove::read_castleKing()
   **************************************/
 void TestMove::read_castleQueen()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   Move move;
+   // EXERCISE
+   move.read("e1c1C");
+   // VERIFY
+   assertUnit(move.source.colRow == 0x40);
+   assertUnit(move.dest.colRow == 0x20);
+   assertUnit(move.moveType == Move::MoveType::CASTLE_QUEEN);
+}  // TEARDOWN
 
  /*************************************
   * ASSIGN simple move
@@ -125,8 +162,14 @@ void TestMove::read_castleQueen()
   **************************************/
 void TestMove::assign_simple()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   // EXERCISE
+   Move move = "e5e6";
+   // VERIFY
+   assertUnit(move.source.colRow == 0x44);
+   assertUnit(move.dest.colRow == 0x45);
+   assertUnit(move.moveType == Move::MoveType::MOVE);
+}  // TEARDOWN
 
  /*************************************
   * ASSIGN capture move
@@ -138,8 +181,15 @@ void TestMove::assign_simple()
   **************************************/
 void TestMove::assign_capture()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   // EXERCISE
+   Move move = "e5d6r";
+   // VERIFY
+   assertUnit(move.source.colRow == 0x44);
+   assertUnit(move.dest.colRow == 0x35);
+   assertUnit(move.moveType == Move::MoveType::MOVE);
+   assertUnit(move.capture == PieceType::ROOK);
+}  // TEARDOWN
 
  /*************************************
   * ASSIGN enpassant move
@@ -150,8 +200,14 @@ void TestMove::assign_capture()
   **************************************/
 void TestMove::assign_enpassant()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   // EXERCISE
+   Move move = "e5f6E";
+   // VERIFY
+   assertUnit(move.source.colRow == 0x44);
+   assertUnit(move.dest.colRow == 0x55);
+   assertUnit(move.moveType == Move::MoveType::ENPASSANT);
+}  // TEARDOWN
 
  /*************************************
   * ASSIGN king side castle
@@ -162,8 +218,14 @@ void TestMove::assign_enpassant()
   **************************************/
 void TestMove::assign_castleKing()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   // EXERCISE
+   Move move = "e1g1c";
+   // VERIFY
+   assertUnit(move.source.colRow == 0x40);
+   assertUnit(move.dest.colRow == 0x60);
+   assertUnit(move.moveType == Move::MoveType::CASTLE_KING);
+}  // TEARDOWN
 
  /*************************************
   * ASSIGN queen side castle
@@ -174,8 +236,14 @@ void TestMove::assign_castleKing()
   **************************************/
 void TestMove::assign_castleQueen()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   // EXERCISE
+   Move move = "e1c1C";
+   // VERIFY
+   assertUnit(move.source.colRow == 0x40);
+   assertUnit(move.dest.colRow == 0x20);
+   assertUnit(move.moveType == Move::MoveType::CASTLE_QUEEN);
+}  // TEARDOWN
 
  /*************************************
   * GET TEXT simple move
@@ -186,8 +254,16 @@ void TestMove::assign_castleQueen()
   **************************************/
 void TestMove::getText_simple()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   Move move;
+   move.source = Position(4, 4);
+   move.dest = Position(4, 5);
+   move.moveType = Move::MoveType::MOVE;
+   // EXERCISE
+   string text = move.getText();
+   // VERIFY
+   assertUnit(text == "e5e6");
+}  // TEARDOWN
 
  /*************************************
   * GET TEXT capture
@@ -199,8 +275,17 @@ void TestMove::getText_simple()
   **************************************/
 void TestMove::getText_capture()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   Move move;
+   move.source = Position(4, 4);
+   move.dest = Position(4, 5);
+   move.moveType = Move::MoveType::MOVE;
+   move.capture = PieceType::ROOK;
+   // EXERCISE
+   string text = move.getText();
+   // VERIFY
+   assertUnit(text == "e5e6r");
+}  // TEARDOWN
 
  /*************************************
   * GET TEXT en passant
@@ -212,8 +297,17 @@ void TestMove::getText_capture()
   **************************************/
 void TestMove::getText_enpassant()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   Move move;
+   move.source = Position(4, 4);
+   move.dest = Position(5, 5);
+   move.moveType = Move::MoveType::ENPASSANT;
+   move.capture = PieceType::PAWN;
+   // EXERCISE
+   string text = move.getText();
+   // VERIFY
+   assertUnit(text == "e5f6E");
+}  // TEARDOWN
 
  /*************************************
   * GET TEXT king side castle
@@ -224,8 +318,16 @@ void TestMove::getText_enpassant()
   **************************************/
 void TestMove::getText_castleKing()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   Move move;
+   move.source = Position(4, 0);
+   move.dest = Position(6, 0);
+   move.moveType = Move::MoveType::CASTLE_KING;
+   // EXERCISE
+   string text = move.getText();
+   // VERIFY
+   assertUnit(text == "e1g1c");
+}  // TEARDOWN
 
  /*************************************
   * GET TEXT queen side castle
@@ -236,8 +338,16 @@ void TestMove::getText_castleKing()
   **************************************/
 void TestMove::getText_castleQueen()
 {
-   assertUnit(NOT_YET_IMPLEMENTED);
-}
+   // SETUP
+   Move move;
+   move.source = Position(4, 0);
+   move.dest = Position(2, 0);
+   move.moveType = Move::MoveType::CASTLE_QUEEN;
+   // EXERCISE
+   string text = move.getText();
+   // VERIFY
+   assertUnit(text == "e1c1C");
+}  // TEARDOWN
 
  /*************************************
   * LETTER FROM PIECE TYPE space

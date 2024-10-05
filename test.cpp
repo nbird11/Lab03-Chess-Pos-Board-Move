@@ -23,7 +23,7 @@
 void testRunner()
 {
    // unit tests
-   //PositionTest().run();
-   //TestMove().run();
+   PositionTest().run();
+   TestMove().run();
    TestBoard().run();
 }

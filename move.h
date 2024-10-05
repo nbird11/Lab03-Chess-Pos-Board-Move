@@ -32,17 +32,21 @@ public:
    // constructor
    Move();
    Move(const char* text, const bool& isWhite);
+   Move(const char* text);
+   Move(const string text, const bool& isWhite);
    bool operator == (const Move& rhs);
    bool operator != (const Move& rhs);
-   bool operator <  (const Move & rhs) { return this->text < rhs.text;  }
-   bool operator <= (const Move & rhs) { return this->text <= rhs.text; }
-   bool operator >  (const Move & rhs) { return this->text > rhs.text;  }
-   bool operator >= (const Move & rhs) { return this->text >= rhs.text; }
+   bool operator <  (const Move & rhs) { return this->text < rhs.text;     }
+   bool operator <= (const Move & rhs) { return this->text <= rhs.text;    }
+   bool operator >  (const Move & rhs) { return this->text > rhs.text;     }
+   bool operator >= (const Move & rhs) { return this->text >= rhs.text;    }
+   Move& operator = (const char* text) { read(string(text)); return *this; }
 
 private:
    char letterFromPieceType(PieceType pt)     const;
    PieceType pieceTypeFromLetter(char letter) const;
-
+   void read(const string& text);
+   string getText() const;
 
    Position  source;    // where the move originated from
    Position  dest;      // where the move finished
