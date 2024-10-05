@@ -17,6 +17,16 @@ using namespace std;
 // we really REALLY need to delete this.
 Space space;
 
+Board::Board()
+{
+   numMoves = 0;
+   for (int col = 0; col < 8; col++)
+   {
+      for (int row = 0; row < 8; row++)
+         board[col][row] = nullptr;
+   }
+}
+
 /***********************************************
 * BOARD : GET
 *         Get a piece from a given position.
